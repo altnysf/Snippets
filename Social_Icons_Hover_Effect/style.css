@@ -1,0 +1,108 @@
+:root {
+    --instagram-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    --linkedin-color: #0077B5;
+    --youtube-color: #FF0000;
+    --twitter-color: #1DA1F2;
+    --github-color: #333;
+}
+
+body{
+    margin:0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family:Arial, Helvetica, sans-serif;
+    background: #e7e4e4;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center; 
+    gap: 1.5rem; 
+}
+
+
+.icon {
+    width: 5.625rem;
+    height: 5.625rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15%;
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.icon i {
+    font-size: 2rem;
+    color: #555;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.icon:hover i {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+.icon::before {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    left: -110%;
+    top: 80%;
+    transform: rotate(45deg);
+    background: #fff;
+    z-index: -1;
+    transition: background 0.3s, left 0.7s ease-in-out, top 0.7s ease-in-out;
+}
+
+.icon:hover::before {
+    left: -15%;
+    top: -15%;
+}
+
+.icon.instagram::before {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    background-size: 200% 200%;
+    animation: gradient-move 3s infinite;
+}
+
+
+.icon.linkedin::before {
+    background: var(--linkedin-color);
+}
+
+.icon.youtube::before {
+    background: var(--youtube-color);
+}
+
+.icon.twitter::before {
+    background: var(--twitter-color);
+}
+
+.icon.github::before {
+    background: var(--github-color);
+}
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
